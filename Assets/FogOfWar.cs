@@ -4,7 +4,7 @@ namespace UnityStandardAssets.ImageEffects
 {
     [ExecuteInEditMode]
     [AddComponentMenu("Image Effects/Color Adjustments/Fog")]
-    public class MultiplyImage : ImageEffectBase
+    public class FogOfWar : ImageEffectBase
     {
         public Texture mask;
         public Texture playerViewTexture;

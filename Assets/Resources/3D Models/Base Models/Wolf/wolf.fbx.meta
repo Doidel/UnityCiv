@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 0cdffb3a37e305543b02033293de8ce5
+timeCreated: 1489240535
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: add
+    100002: Armature
+    100004: back
+    100006: Bone_001
+    100008: Bone_001_L_001
+    100010: Bone_001_R_001
+    100012: Bone_002
+    100014: Bone_003
+    100016: Bone_004
+    100018: Bone_005
+    100020: Bone_006
+    100022: Bone_007
+    100024: Bone_008
+    100026: Bone_009
+    100028: Bone_010
+    100030: Bone_011
+    100032: Bone_012
+    100034: Bone_012_L
+    100036: Bone_012_L_001
+    100038: Bone_012_L_002
+    100040: Bone_012_L_003
+    100042: Bone_012_R
+    100044: Bone_012_R_001
+    100046: Bone_012_R_002
+    100048: Bone_012_R_003
+    100050: Bone_013
+    100052: Bone_L
+    100054: Bone_L_001
+    100056: Bone_L_002
+    100058: Bone_L_003
+    100060: Bone_R
+    100062: Bone_R_001
+    100064: Bone_R_002
+    100066: Bone_R_003
+    100068: Camera
+    100070: eye
+    100072: eye_001
+    100074: fill
+    100076: key
+    100078: wolf
+    100080: wolf_001
+    100082: //RootNode
+    400000: add
+    400002: Armature
+    400004: back
+    400006: Bone_001
+    400008: Bone_001_L_001
+    400010: Bone_001_R_001
+    400012: Bone_002
+    400014: Bone_003
+    400016: Bone_004
+    400018: Bone_005
+    400020: Bone_006
+    400022: Bone_007
+    400024: Bone_008
+    400026: Bone_009
+    400028: Bone_010
+    400030: Bone_011
+    400032: Bone_012
+    400034: Bone_012_L
+    400036: Bone_012_L_001
+    400038: Bone_012_L_002
+    400040: Bone_012_L_003
+    400042: Bone_012_R
+    400044: Bone_012_R_001
+    400046: Bone_012_R_002
+    400048: Bone_012_R_003
+    400050: Bone_013
+    400052: Bone_L
+    400054: Bone_L_001
+    400056: Bone_L_002
+    400058: Bone_L_003
+    400060: Bone_R
+    400062: Bone_R_001
+    400064: Bone_R_002
+    400066: Bone_R_003
+    400068: Camera
+    400070: eye
+    400072: eye_001
+    400074: fill
+    400076: key
+    400078: wolf
+    400080: wolf_001
+    400082: //RootNode
+    4300000: wolf_001
+    4300002: wolf
+    4300004: eye_001
+    4300006: eye
+    7400000: Default Take
+    7400002: ArmatureAction
+    7400004: attack
+    7400006: attack_001
+    7400008: attack_002
+    7400010: die
+    7400012: die_001
+    7400014: idle
+    7400016: idle_001
+    7400018: run
+    7400020: run_001
+    9500000: //RootNode
+    13700000: eye
+    13700002: eye_001
+    13700004: wolf
+    13700006: wolf_001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
