@@ -46,12 +46,8 @@ namespace TerrainGenerator
         #region Heightmap stuff
         private Thread heightmapThread;
         private bool hasStarted = false;
-        //Dictionary<Point, Tile> tilesToAssign;
-        public void GenerateHeightmap(List<Point> tilesAlreadyCreatedOrBeingWorkedOn)
+        public void GenerateHeightmap()
         {
-            /*tilesToAssign = new Dictionary<Point, Tile>(Tiles);
-            foreach (var pos in tilesAlreadyCreatedOrBeingWorkedOn)
-                tilesToAssign.Remove(pos);*/
             heightmapThread = new Thread(GenerateHeightAndColormap);
             heightmapThread.Start();
             hasStarted = true;
