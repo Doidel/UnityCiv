@@ -27,47 +27,45 @@ namespace TerrainGenerator
 
         private float[,,] Alphamap { get; set; }
 
-        private object HeightmapThreadLockObject { get; set; }
-
         public TerrainChunk(TerrainChunkSettings settings, NoiseProvider noiseProvider, int x, int z)
         {
-            HeightmapThreadLockObject = new object();
-
-            Tiles = GridManager.instance.CreateOrGetGrid(new Vector2(x, z));
+            //TODO: Overlapping tiles for different chunks crashes game
+            Tiles = GridManager.instance.CreateOrGetGrid(new Vector2(x, z)); // creates the entire hex grid already for this thread, on the main thread. This consumes quite a bit of performance, there might be better ways...
             Settings = settings;
             NoiseProvider = noiseProvider;
             Neighborhood = new TerrainChunkNeighborhood();
 
             Position = new Vector2i(x, z);
             WorldPosition = new Vector3(Position.X * Settings.Length - Settings.Length / 2, -0.2f, Position.Z * Settings.Length - Settings.Length / 2);
+
+            Debug.Log("Working on tile assigment  " + Position.X.ToString() + ", " + Position.Z.ToString());
+            TileCreator.Create(Tiles, Position, WorldPosition, NoiseProvider); // due to overlapping tiles we currently do this here instead of in a thread
+            Debug.Log("Finished  tile assigment " + Position.X.ToString() + ", " + Position.Z.ToString());
         }
 
         #region Heightmap stuff
-
-        public void GenerateHeightmap()
+        private Thread heightmapThread;
+        private bool hasStarted = false;
+        //Dictionary<Point, Tile> tilesToAssign;
+        public void GenerateHeightmap(List<Point> tilesAlreadyCreatedOrBeingWorkedOn)
         {
-            var thread = new Thread(GenerateHeightAndColormap);
-            thread.Start();
+            /*tilesToAssign = new Dictionary<Point, Tile>(Tiles);
+            foreach (var pos in tilesAlreadyCreatedOrBeingWorkedOn)
+                tilesToAssign.Remove(pos);*/
+            heightmapThread = new Thread(GenerateHeightAndColormap);
+            heightmapThread.Start();
+            hasStarted = true;
             //GenerateHeightAndColormap();
         }
 
+        public bool IsDone { get { return hasStarted && !heightmapThread.IsAlive; } }
+
         private void GenerateHeightAndColormap()
         {
-            lock (HeightmapThreadLockObject)
-            {
-                Debug.Log("Working on tile assigment  " + Position.X.ToString() + ", " + Position.Z.ToString());
-                TileCreator.Create(Tiles, Position, WorldPosition, NoiseProvider);
-                Debug.Log("Finished  tile assigment " + Position.X.ToString() + ", " + Position.Z.ToString());
                 var res = TextureSplatPainter.Paint(WorldPosition, Tiles, Settings);
-                Debug.Log("Finished  painting " + Position.X.ToString() + ", " + Position.Z.ToString());
                 Alphamap = res.Alphamap;
                 Heightmap = res.Heightmap;
-            }
-        }
-
-        public bool IsHeightmapReady()
-        {
-            return Terrain == null && Heightmap != null;
+                Debug.Log("Finished  painting " + Position.X.ToString() + ", " + Position.Z.ToString());
         }
 
         public float GetTerrainHeight(Vector3 worldPosition)
@@ -97,11 +95,13 @@ namespace TerrainGenerator
             Data.treeInstances = new TreeInstance[] { };
             Data.heightmapResolution = Settings.HeightmapResolution;
             Data.alphamapResolution = Settings.AlphamapResolution;
+            if (Alphamap == null || Heightmap == null) throw new UnityException("Map missing at " + Position);
             Data.SetAlphamaps(0, 0, Alphamap);
             Data.SetHeights(0, 0, Heightmap);
             //ApplyTextures(Data);
 
             var newTerrainGameObject = Terrain.CreateTerrainGameObject(Data);
+            newTerrainGameObject.name = "Terrain " + Position.X + "/" + Position.Z;
             newTerrainGameObject.transform.position = WorldPosition;
             newTerrainGameObject.layer = 10;
 

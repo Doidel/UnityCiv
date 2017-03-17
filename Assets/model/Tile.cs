@@ -308,4 +308,9 @@ public class Tile : GridObject, IHasNeighbours<Tile>
             }
         }
     }
+
+    public override string ToString()
+    {
+        return "Tile[" + X + "," + Y + "]";
+    }
 }

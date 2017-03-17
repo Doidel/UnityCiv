@@ -100,8 +100,8 @@ namespace TerrainGenerator
 
         public Vector2i GetChunkPosition(Vector3 worldPosition)
         {
-            int x = worldPosition.x != 0f ? (int)Mathf.Floor(worldPosition.x / Settings.Length) : 0;
-            int z = worldPosition.y != 0f ? (int)Mathf.Floor(worldPosition.z / Settings.Length) : 0;
+            int x = worldPosition.x != 0f ? (int)Mathf.Round(worldPosition.x / Settings.Length) : 0;
+            int z = worldPosition.z != 0f ? (int)Mathf.Round(worldPosition.z / Settings.Length) : 0;
 
             return new Vector2i(x, z);
         }

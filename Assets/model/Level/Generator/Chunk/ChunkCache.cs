@@ -109,7 +109,7 @@ namespace TerrainGenerator
             var chunks = ChunksBeingGenerated.ToList();
             foreach (var chunk in chunks)
             {
-                if (chunk.Value.IsHeightmapReady())
+                if (chunk.Value.IsDone)
                 {
                     ChunksBeingGenerated.Remove(chunk.Key);
                     LoadedChunks.Add(chunk.Key, chunk.Value);
