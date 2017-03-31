@@ -1,6 +1,8 @@
+http://www.redblobgames.com/grids/hexagons/ great source about hexagon math stuff
 https://www.assetstore.unity3d.com/en/#!/content/45038: creative commons
 http://maxwelljohnsongame.wix.com/aquariusmaxdesign fantasy kit lite, free, commercial use allowed (in FAQ)
 freeimages.com
 https://www.assetstore.unity3d.com/en/#!/content/37963 fish
 http://code-phi.com/infinite-terrain-generation-in-unity-3d/ chunk management idea
 https://www.turbosquid.com/FullPreview/Index.cfm/ID/998485 wolf, animated myself
+http://libnoise.sourceforge.net/
