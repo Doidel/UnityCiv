@@ -1,0 +1,2 @@
+- You must not use any other AssetStore Assets - even if they are free!
+- You mustn't use any StandardAssets. You can get inspiration from there, but not more.
